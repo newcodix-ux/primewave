@@ -20,7 +20,9 @@
     <!-- color scheme -->
     <link id="colors" href="css/scheme-01.css" rel="stylesheet" type="text/css">
 
+    <link rel="stylesheet" href="./css/live-chat.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         .spinner-modal {
@@ -1007,7 +1009,8 @@
 
             <h5>About Us</h5>
             <p>We are a trusted logistics and cargo solutions provider committed to delivering your goods safely,
-                efficiently, and on time. With years of experience in freight forwarding, warehousing, and international
+                efficiently, and on time. With years of experience in freight forwarding, warehousing, and
+                international
                 shipping.</p>
 
             <div class="social-icons">
@@ -1017,6 +1020,59 @@
                 <a href="#"><i class="fa-brands fa-youtube"></i></a>
                 <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
+        </div>
+    </div>
+
+    <!-- LiveChat Scoped UI Panel -->
+    <div class="lc-widget-launcher-wrapper">
+        <!-- Popup Toaster Notification -->
+        <div id="chat-toaster" class="lc-widget-toaster-popup">
+            <span>Need help? Chat with us!</span>
+            <button type="button" id="close-chat-toaster" class="lc-widget-toaster-close-btn"
+                title="Dismiss">&times;</button>
+        </div>
+
+        <!-- Floating Trigger Bubble -->
+        <button type="button" id="live-chat-trigger-bubble" class="lc-widget-bubble-launcher" title="Chat with support">
+            <i data-lucide="headset"></i>
+        </button>
+    </div>
+
+    <!-- Slide-in Chat UI Panel -->
+    <div class="lc-widget-drawer-overlay" id="chatDrawerOverlay"></div>
+    <div class="lc-widget-drawer" id="chatDrawer">
+        <div class="lc-widget-drawer-header">
+            <div class="lc-widget-title">
+                <i data-lucide="messages-square"></i>
+                <span>Customer Support</span>
+            </div>
+            <div class="lc-widget-header-actions" style="display: flex; align-items: center; gap: 8px;">
+                <!-- Logout Button (Only visible when user is logged in) -->
+                <button type="button" id="chatLogoutBtn" class="lc-widget-action-btn" title="Log Out"
+                    style="display: none; background: transparent; border: none; color: #ef4444; cursor: pointer;">
+                    <i data-lucide="power"></i>
+                </button>
+                <button type="button" id="closeChatDrawerBtn" class="lc-widget-action-btn" title="Close Chat">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="lc-widget-feed-container" id="chat-message-feed">
+            <!-- Dynamically Hydrated by live-chat.js -->
+        </div>
+
+        <div class="lc-widget-drawer-footer">
+            <input type="file" id="chat-image-attachment-input" style="display: none;" accept="image/*">
+            <button type="button" id="chat-attachment-trigger-btn" class="lc-widget-tool-btn"
+                title="Attach Document/Image">
+                <i data-lucide="image-plus"></i>
+            </button>
+            <textarea id="chat-terminal-text-field" class="lc-widget-input-field" placeholder="Type a message..."
+                rows="1"></textarea>
+            <button type="button" id="chat-send-message-btn" class="lc-widget-send-btn">
+                <i data-lucide="send-horizontal"></i>
+            </button>
         </div>
     </div>
 
@@ -1077,6 +1133,8 @@
         })();
     </script>
 
+    <script src="./js/live-chat.js" defer></script>
+
     <!-- Javascript Files
     ================================================== -->
     <script src="js/plugins.js"></script>
@@ -1088,3 +1146,11 @@
 </body>
 
 </html>
+```[cite: 2, 9, 10, 11]
+
+<ElicitationsGroup message="If the chat bubble still doesn't appear or behaves unexpectedly:">
+    <Elicitation label="404 on CSS or JS"
+        query="The live chat bubble is still missing and I see a 404 error for live-chat.css or live-chat.js." />
+    <Elicitation label="Icons not rendering"
+        query="The chat button shows up at the bottom right, but the icon inside it is blank." />
+</ElicitationsGroup>
